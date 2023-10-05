@@ -1,15 +1,20 @@
 package com.paganidev.barbershop.entities;
 
 import com.paganidev.barbershop.entities.enums.OrderStatus;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
+@Entity
+@Table(name = "order")
 public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Instant moment;
     private OrderStatus orderStatus;
