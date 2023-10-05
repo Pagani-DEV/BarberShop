@@ -1,19 +1,18 @@
 package com.paganidev.barbershop.resources;
 
-import com.paganidev.barbershop.entities.Barber;
+import com.paganidev.barbershop.entities.BarberWork;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/barbers")
-public class BarberResource {
+@RequestMapping("/work")
+public class BarberWorkResource {
 
     @GetMapping
-    public ResponseEntity<Barber> findAll() {
-        Barber barber = new Barber(1L, "Eduard", "eduar@gmail.com", "123456");
-        return ResponseEntity.ok().body(barber);
-
+    public ResponseEntity<BarberWork> findAdll(){
+        BarberWork barberWork = new BarberWork(1L, "Corte", "Corte a maquina ou tesoura", 60.0, 20);
+        return ResponseEntity.ok().body(barberWork);
     }
 }
