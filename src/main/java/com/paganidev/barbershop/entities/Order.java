@@ -3,7 +3,6 @@ package com.paganidev.barbershop.entities;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.paganidev.barbershop.entities.enums.OrderStatus;
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -23,6 +22,9 @@ public class Order implements Serializable {
     private Instant moment;
 
     private OrderStatus orderStatus;
+
+    //Associations
+
 
     public Order(){
     }
