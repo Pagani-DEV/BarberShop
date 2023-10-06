@@ -1,14 +1,16 @@
 package com.paganidev.barbershop.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.paganidev.barbershop.entities.enums.OrderStatus;
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
 @Entity
-@Table(name = "order")
+@Table(name = "order_service")
 public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,7 +18,10 @@ public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
     private Instant moment;
+
     private OrderStatus orderStatus;
 
     public Order(){
