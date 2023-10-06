@@ -6,7 +6,9 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "order_service")
@@ -24,7 +26,19 @@ public class Order implements Serializable {
     private OrderStatus orderStatus;
 
     //Associations
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 
+    @ManyToOne
+    @JoinColumn(name = "barber_id")
+    private Barber barber;
+
+    @ManyToMany(mappedBy = "id.order")   //OrderItems
+    private Set<BarberWork> works = new HashSet<>();
+
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
 
     public Order(){
     }
@@ -34,6 +48,8 @@ public class Order implements Serializable {
         this.moment = moment;
         this.orderStatus = orderStatus;
     }
+
+
 
     public Long getId() {
         return id;

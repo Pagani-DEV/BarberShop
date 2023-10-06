@@ -3,6 +3,8 @@ package com.paganidev.barbershop.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +19,10 @@ public class Barber implements Serializable {
     private String name;
     private String email;
     private String password;
+
+    //Associations
+    @OneToMany(mappedBy = "barber")
+    private List<Order> orders = new ArrayList<>();
 
     public Barber(){
     }
@@ -58,6 +64,11 @@ public class Barber implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    //Colletions somente GET
+    public List<Order> getOrders() {
+        return orders;
     }
 
     @Override

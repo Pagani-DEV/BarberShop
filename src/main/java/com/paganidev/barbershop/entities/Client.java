@@ -3,6 +3,8 @@ package com.paganidev.barbershop.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +18,10 @@ public class Client implements Serializable {
     private Long id;
     private String name;
     private String phone;
+
+    //Associations
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
 
     public Client() {
     }
@@ -48,6 +54,11 @@ public class Client implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    //Collections Somente GET          ASSOCIATION  WITH ORDER
+    public List<Order> getOrders() {
+        return orders;
     }
 
     @Override

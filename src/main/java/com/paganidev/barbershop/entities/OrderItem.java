@@ -3,12 +3,14 @@ package com.paganidev.barbershop.entities;
 import com.paganidev.barbershop.entities.pk.OrderItemPK;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
-public class OrderItem {
+@Entity(name = "order_item")
+public class OrderItem implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @EmbeddedId
     private OrderItemPK id = new OrderItemPK();

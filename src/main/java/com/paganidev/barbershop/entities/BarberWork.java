@@ -3,7 +3,9 @@ package com.paganidev.barbershop.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "barber_work")
@@ -18,6 +20,10 @@ public class BarberWork implements Serializable {
     private String description;
     private Double price;
     private Integer duration;
+
+    //Associations
+    @OneToMany
+    private Set<OrderItem> items = new HashSet<>();
 
     public BarberWork(){
     }
@@ -69,6 +75,7 @@ public class BarberWork implements Serializable {
     public void setDuration(Integer duration) {
         this.duration = duration;
     }
+
 
     @Override
     public boolean equals(Object o) {
