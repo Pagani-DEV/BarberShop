@@ -2,6 +2,8 @@ package com.paganidev.barbershop.entities.pk;
 
 import com.paganidev.barbershop.entities.BarberWork;
 import com.paganidev.barbershop.entities.Order;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -10,8 +12,12 @@ public class OrderItemPK implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id")
     private Order order;
 
+    @ManyToOne
+    @JoinColumn(name = "work_id")
     private BarberWork barberWork;
 
     public Order getOrder() {

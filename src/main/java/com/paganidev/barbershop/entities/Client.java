@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "client")
+
 public class Client implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -57,9 +57,9 @@ public class Client implements Serializable {
     }
 
     //Collections Somente GET          ASSOCIATION  WITH ORDER
-    public List<Order> getOrders() {
-        return orders;
-    }
+//    public List<Order> getOrders() {
+//        return orders;
+//    }
 
     @Override
     public boolean equals(Object o) {

@@ -34,8 +34,9 @@ public class Order implements Serializable {
     @JoinColumn(name = "barber_id")
     private Barber barber;
 
-    @ManyToMany(mappedBy = "id.order")   //OrderItems
-    private Set<BarberWork> works = new HashSet<>();
+
+    @OneToMany(mappedBy = "id.order")
+    private Set<OrderItem> items = new HashSet<>();
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private Payment payment;

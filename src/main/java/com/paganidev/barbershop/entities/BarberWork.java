@@ -8,7 +8,6 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "barber_work")
 public class BarberWork implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -22,8 +21,6 @@ public class BarberWork implements Serializable {
     private Integer duration;
 
     //Associations
-    @OneToMany
-    private Set<OrderItem> items = new HashSet<>();
 
     public BarberWork(){
     }

@@ -20,7 +20,7 @@ public class Barber implements Serializable {
     private String email;
     private String password;
 
-    //Associations
+    //Associations  mappedBy é o nome do atributo que esta na associação
     @OneToMany(mappedBy = "barber")
     private List<Order> orders = new ArrayList<>();
 
@@ -67,9 +67,9 @@ public class Barber implements Serializable {
     }
 
     //Colletions somente GET
-    public List<Order> getOrders() {
-        return orders;
-    }
+//    public List<Order> getOrders() {
+//        return orders;
+//    }
 
     @Override
     public boolean equals(Object o) {

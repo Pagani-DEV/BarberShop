@@ -7,7 +7,6 @@ import java.time.Instant;
 import java.util.Objects;
 
 @Entity
-@Table(name = "payment")
 public class Payment implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,6 +15,10 @@ public class Payment implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Instant moment;
+
+    @OneToOne
+    //@MapsId
+    private Order order;
 
     public Payment(){
     }
