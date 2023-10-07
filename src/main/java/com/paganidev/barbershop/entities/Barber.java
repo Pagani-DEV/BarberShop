@@ -67,9 +67,9 @@ public class Barber implements Serializable {
     }
 
     //Colletions somente GET
-//    public List<Order> getOrders() {
-//        return orders;
-//    }
+    public List<Order> getOrders() {
+        return orders;
+    }
 
     @Override
     public boolean equals(Object o) {
