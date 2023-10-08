@@ -18,7 +18,7 @@ public class ClientService {
         return repository.findAll();
     }
 
-    //Falta fazer tratamento de exceções
+    //Falta fazer tratamento de exceção
     public Client findById(Long id){
         Optional<Client> obj = repository.findById(id);
         return obj.get();
@@ -28,6 +28,7 @@ public class ClientService {
         return repository.save(obj);
     }
 
+    //Falta Fazer tratamento de exceção
     public void delete(Long id){
         repository.deleteById(id);
     }
