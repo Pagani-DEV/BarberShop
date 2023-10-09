@@ -2,22 +2,34 @@ package com.paganidev.barbershop.resources;
 
 import com.paganidev.barbershop.entities.Order;
 import com.paganidev.barbershop.entities.enums.OrderStatus;
+import com.paganidev.barbershop.services.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Instant;
+import java.util.List;
 
 @RestController
-@RequestMapping( value = "/orders")
+@RequestMapping(value = "/orders")
 public class OrderResource {
 
+    @Autowired
+    private OrderService service;
 
-        @GetMapping
-        public ResponseEntity<Order> findAll(){
-            Order order = new Order(1L, Instant.parse("2024-06-20T19:53:07Z"), OrderStatus.PAID);
-            return ResponseEntity.ok().body(order);
-        }
+    @GetMapping
+    public ResponseEntity<List<Order>> findAll() {
+        List<Order> obj = service.findAll();
+        return ResponseEntity.ok().body(obj);
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Order> findById(@PathVariable Long id){
+        Order obj = service.findById(id);
+        return ResponseEntity.ok().body(obj);
+    }
 
 }
