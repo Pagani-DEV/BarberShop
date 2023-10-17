@@ -17,9 +17,7 @@ public class OrderItem implements Serializable {
     private Integer quantity;
     private Double price;
 
-    //Associations
-
-    public OrderItem(){
+    public OrderItem() {
     }
 
     public OrderItem(Order order, BarberWork barberWork, Integer quantity, Double price) {
@@ -30,7 +28,7 @@ public class OrderItem implements Serializable {
     }
 
     //Metodo Get tem que ser feito a mão para pegar os metodos lá do OrderitemPK
-    public Order getOrder(){
+    public Order getOrder() {
         return id.getOrder();
     }
 
@@ -40,12 +38,12 @@ public class OrderItem implements Serializable {
     }
 
     //Metodo Get tem que ser feito a mão para pegar os metodos lá do OrderitemPK
-    public BarberWork getBarberWork(){
+    public BarberWork getBarberWork() {
         return id.getBarberWork();
     }
 
     //Metodo Set tem que ser feito a mão para pegar os metodos lá do OrderitemPK
-    public void setBarberWork(BarberWork barberWork){
+    public void setBarberWork(BarberWork barberWork) {
         id.setBarberWork(barberWork);
     }
 
@@ -65,7 +63,7 @@ public class OrderItem implements Serializable {
         this.price = price;
     }
 
-    public Double getSubTotal(){
+    public Double getSubTotal() {
         return quantity * price;
     }
 
